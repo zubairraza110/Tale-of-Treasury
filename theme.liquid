@@ -1,0 +1,495 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta name="p:domain_verify" content="34157dee62157f7c3a55eebee988ea3b"/>
+  
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <script src="https://kit.fontawesome.com/2d7a0f05f0.js" crossorigin="anonymous"></script>
+
+  <!-- fonts -->
+  <script src="https://use.typekit.net/aov7ntb.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <!-- CSS ================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {% if template contains 'product' %}
+    {{ 'jquery.leanModal.min.js' | asset_url | script_tag }}
+  {% endif %}
+
+  <!-- BEGIN SLICK -->
+  {{ 'slick.min.css' | asset_url | stylesheet_tag }}
+  
+
+  <!-- SELECT DD -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/components/transition.min.css">
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/components/transition.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/components/dropdown.min.css">
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/components/dropdown.min.js"></script> -->
+  <!-- END SELECT DD -->
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  
+  {% render 'judgeme_core' %}
+{% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T9VGK98');</script>
+<!-- End Google Tag Manager -->
+  <!-- Global site tag (gtag.js) - Google Ads: 10855974110 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10855974110"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10855974110');
+</script>
+
+</head>
+
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+  
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9VGK98"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="NavDrawer" class="drawer drawer--left" style="top: 150px;" tabindex="-1">
+    <!-- begin mobile-nav -->
+     <ul class="mobile-nav">
+        <li class="mobile-nav__item" aria-haspopup="true">
+          <div class="mobile-nav__has-sublist">
+            <a href="/collections/engagement" class="mobile-nav__link">Engagement Rings</a>
+            <div class="mobile-nav__toggle">
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                <span class="icon icon-plus" aria-hidden="true"></span>
+                <span class="fallback-text">See More</span>
+              </button>
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                <span class="icon icon-minus" aria-hidden="true"></span>
+                <span class="fallback-text">"Close Cart"</span>
+              </button>
+            </div>
+          </div>
+          <ul class="mobile-nav__sublist">
+
+              <li class="mobile-nav__item"><a href="/collections/engagement-rings-solitaire" class="mobile-nav__link">Solitaire</a></li>
+            <li class="mobile-nav__item"><a href="/collections/engagement-rings-three-stone" class="mobile-nav__link">Three Stone</a></li>
+            <li class="mobile-nav__item"><a href="/collections/engagement-rings-bridal-sets" class="mobile-nav__link">Bridal Sets</a></li>
+              <li class="mobile-nav__item"><a href="/collections/engagement-rings-side-stones" class="mobile-nav__link">Side Stones</a></li>
+              <li class="mobile-nav__item"><a href="/collections/engagement-rings-vintage" class="mobile-nav__link">Vintage</a></li>
+              <li class="mobile-nav__item"><a href="/collections/engagement" class="mobile-nav__link">View All</a> </li>
+              
+
+          </ul>
+        </li>
+        <li class="mobile-nav__item" aria-haspopup="true">
+          <div class="mobile-nav__has-sublist">
+            <a href="/collections/wedding-rings" class="mobile-nav__link">Wedding Rings</a>
+            <div class="mobile-nav__toggle">
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                <span class="icon icon-plus" aria-hidden="true"></span>
+                <span class="fallback-text">See More</span>
+              </button>
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                <span class="icon icon-minus" aria-hidden="true"></span>
+                <span class="fallback-text">"Close Cart"</span>
+              </button>
+            </div>
+          </div>
+          <ul class="mobile-nav__sublist">
+
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-mens-rings" class="mobile-nav__link">Men's Rings</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-womens-rings" class="mobile-nav__link">Women's Rings</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-eternity-rings" class="mobile-nav__link">Eternity Rings</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-diamond-rings" class="mobile-nav__link">Diamond Rings</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-rings-gemstone" class="mobile-nav__link">Gemstone</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-anniversary-plain-bands" class="mobile-nav__link">Plain Bands</a></li>
+              <li class="mobile-nav__item"><a href="/collections/wedding-rings" class="mobile-nav__link">View All</a></li>
+           
+          </ul>
+        </li>        
+        <li class="mobile-nav__item" aria-haspopup="true">
+          <div class="mobile-nav__has-sublist">
+            <a href="/collections/jewelry" class="mobile-nav__link">Jewelry</a>
+            <div class="mobile-nav__toggle">
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                <span class="icon icon-plus" aria-hidden="true"></span>
+                <span class="fallback-text">See More</span>
+              </button>
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                <span class="icon icon-minus" aria-hidden="true"></span>
+                <span class="fallback-text">"Close Cart"</span>
+              </button>
+            </div>
+          </div>
+          <ul class="mobile-nav__sublist">
+              <li class="mobile-nav__item ">
+                <a href="/collections/pendants" class="mobile-nav__link">Pendants</a>
+              </li>
+            
+              <li class="mobile-nav__item ">
+                <a href="/collections/earrings" class="mobile-nav__link">Earrings</a>
+              </li>
+            
+              <li class="mobile-nav__item ">
+                <a href="/collections/lab-grown-diamonds" class="mobile-nav__link">Lab Grown Diamonds</a>
+              </li>
+            
+              <li class="mobile-nav__item ">
+                <a href="/collections/fashion" class="mobile-nav__link">Fashion</a>
+              </li>
+          </ul>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="/pages/about-us" class="mobile-nav__link">Our Story</a>
+        </li>
+        <li class="mobile-nav__item account-link">
+          <a href="/account/login" id="customer_login_link">Login</a> or <a href="/account/register" id="customer_register_link">Register</a>
+        </li>
+        <li class="mobile-nav__item account-link">
+            <a href="/account">My Account</a>
+        </li>
+        <li class="mobile-nav__item account-link">
+            <a href="tel:+8473676322">Call (847) 367-6322</a>
+        </li>
+        <li class="mobile-nav__item account-link">
+            <a href="/pages/contact-us">Contact Us</a>
+        </li>
+    </ul>
+    <!-- //mobile-nav -->
+  </div>
+
+  {% if settings.ajax_cart_method == "drawer" %}
+    <div id="CartDrawer" class="drawer drawer--right">
+      <div class="drawer__header">
+        <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
+        <div class="drawer__close js-drawer-close">
+          <button type="button" class="icon-fallback-text">
+            <img class="close-cart" src="{{ 'search-x.png' | asset_url }}" alt="close" height="25px" width="25px">
+            <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+          </button>
+        </div>
+      </div>
+      <div id="CartContainer"></div>
+    </div>
+  {% endif %}
+  <div id="topbar">
+       <div class="wrapper">
+       <div id="topbar-left">Free Shipping on all orders</div>
+       <div id="topbar-right">
+         <a href="tel:8473676322"><i class="fal fa-phone"></i> Call (847)367-6322</a>
+         <a href="javascript:void(0)" class="livechat"  onclick="tidioChatApi.open()"><i class="fal fa-comments"></i> Live Chat</a>
+       </div>
+       </div>
+  </div>
+  <div id="PageContainer">
+    <header class="site-header" role="banner">
+      <div class="wrapper">
+
+
+        <div class="grid--full grid--table">
+        
+          <div class="site-header__search desk-search medium-down--hide">
+            {% include 'search-bar' %}
+          </div>
+
+          <div class="grid__item small--one-half logo">
+            {% comment %}
+              Use the uploaded logo from theme settings if enabled.
+              Site name gets precedence with H1 tag on homepage, div on other pages.
+            {% endcomment %}
+            {% if template == 'index' %}
+              <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+            {% else %}
+              <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+            {% endif %}
+              <a href="/" itemprop="url" class="site-header__logo-link">
+                <img class="mobile-logo" src="{{ 'bd-mobile-logo.jpg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+<!--                 <img class="tab-desk-logo" src="{{ 'bd-logo-horizontal-trans.png ' | asset_url }}" alt="{{ shop.name }}" itemprop="logo"> -->
+                <img class="tab-desk-logo" src="{{ 'bd-logo-vertical-trans.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+              </a>
+            {% if template == 'index' %}
+              </h1>
+            {% else %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="grid__item mob-nav small--one-half medium--one-half">
+
+              <div class="grid__item one-third text-center menu-tog">
+                <div class="site-nav--mobile">
+                  <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+
+                    <div class="nav-burger">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid__item one-third text-center search-tog">
+                <div class="site-nav--mobile">
+                  <button type="button" class="icon-fallback-text site-nav__link">
+                    <i class="fal fa-search"></i>
+                    <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid__item one-third text-center cart-tog">
+
+                <div class="site-nav--mobile cart-wrap">
+                  <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+                    <i class="fal fa-shopping-cart"></i>
+                    <span id="CartCount">{{ cart.item_count }}</span>
+                  </a>
+                </div>
+              </div>
+
+
+            
+          </div>
+          
+          <div class="grid__item large--one-half large--text-right medium-down--hide  account-cart-container">
+
+            <div class="help-dd">
+              <span class="help">Help</span>
+              <i class="far fa-chevron-down"></i>
+              <ul>
+                <li>Call (847) 367-6322</li>
+                <li><a href="mailto:support@blissdiamond.com">Send An Email</a></li>
+                <li><a href="/pages/custom-design">Custom Design</a></li>
+                <li><a href="/pages/contact-us">Contact Us</a></li>
+              </ul>
+            </div>
+
+            <div class="account-dd">
+              <span class="account">Account</span>
+              <i class="far fa-chevron-down"></i>
+              <ul>
+                {% if customer %}
+                  <li><a href="/account">My Account</a></li>
+                  <li>{{ 'Logout' | customer_logout_link }}</li>
+                {% else %}
+                  <li>{{ 'Login' | customer_login_link }} or {{ 'Register' |  customer_register_link }}</li>
+                {% endif %}
+                <li><a href="/account">Order Status</a></li>
+                <li><a href="/cart">Cart</a></li>
+              </ul>
+            </div>
+
+            {% comment %}
+              Show number of items in the cart and total cost in the /cart link
+              Ajax Cart Notes:
+                - #cartCount updates the total number of items in the cart
+                - #cartCost updates the total cost of the cart
+                - Documentation:  http://shopify.com/timber#ajax-cart
+            {% endcomment %}
+            <div class="cart-dd">
+              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+                <i class="fal fa-shopping-cart"></i>
+                (<span id="CartCount">{{ cart.item_count }}</span>)
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="site-header__search mobile-search">
+      {% include 'search-bar' %}
+    </div>
+
+    <nav class="nav-bar" role="navigation">
+      <div class="wrapper">
+          <!-- begin site-nav -->
+          <ul class="site-nav" id="AccessibleNav">
+              <li class="site-nav--has-dropdown nav" aria-haspopup="true" data="Engagement Rings">
+                <a href="/collections/engagement" class="site-nav__link">Engagement Rings</a>
+                <ul class="site-nav__dropdown">
+                    <li><a href="/collections/engagement-rings-solitaire" class="site-nav__link">Solitaire</a></li>
+            <li><a href="/collections/engagement-rings-three-stone" class="site-nav__link">Three Stone</a></li>
+            <li><a href="/collections/engagement-rings-bridal-sets" class="site-nav__link">Bridal Sets</a></li>
+              <li><a href="/collections/engagement-rings-side-stones" class="site-nav__link">Side Stones</a></li>
+              <li><a href="/collections/engagement-rings-vintage" class="site-nav__link">Vintage</a></li>
+              <li><a href="/collections/engagement" class="site-nav__link">View All</a></li>
+                </ul>
+              </li>
+              <li class="site-nav--has-dropdown nav" aria-haspopup="true" data="Wedding Rings">
+                <a href="/collections/wedding-rings" class="site-nav__link">Wedding Rings</a>
+                <ul class="site-nav__dropdown">
+                     <li><a href="/collections/wedding-anniversary-mens-rings" class="site-nav__link">Men's Rings</a></li>
+              <li><a href="/collections/wedding-anniversary-womens-rings" class="site-nav__link">Women's Rings</a></li>
+              <li><a href="/collections/wedding-anniversary-eternity-rings" class="site-nav__link">Eternity Rings</a></li>
+              <li><a href="/collections/wedding-anniversary-diamond-rings" class="site-nav__link">Diamond Rings</a></li>
+              <li><a href="/collections/wedding-anniversary-rings-gemstone" class="site-nav__link">Gemstone</a></li>
+              <li><a href="/collections/wedding-anniversary-plain-bands" class="site-nav__link">Plain Bands</a></li>
+              <li><a href="/collections/wedding-rings" class="site-nav__link">View All</a></li>
+                </ul>
+              </li>
+              <li class="site-nav--has-dropdown nav full-menu" aria-haspopup="true" data="Jewelry">
+                <a href="/collections/jewelry" class="site-nav__link">Jewelry</a>
+                <ul class="site-nav__dropdown mega-dd">
+                    <li><a href="/collections/pendants" class="site-nav__link">Pendants</a>
+                      <ul>
+                        <li><a href="/collections/solitaire-pendants" class="site-nav__link">Solitaire</a></li>
+                        <li><a href="/collections/halo-pendants" class="site-nav__link">Halo</a></li>
+                        <li><a href="/collections/three-stone-pendants" class="site-nav__link">Three Stone</a></li>
+                        <li><a href="/collections/heart-shape-pendants" class="site-nav__link">Heart Shape</a></li>
+                        <li><a href="/collections/circle-pendants" class="site-nav__link">Circle</a></li>
+                        <li><a href="/collections/pendants" class="site-nav__link">View All</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/collections/earrings" class="site-nav__link">Earrings</a>
+                      <ul>
+                        <li><a href="/collections/earrings-studs" class="site-nav__link">Studs</a></li>
+                        <li><a href="/collections/halo-earrings" class="site-nav__link">Halo</a></li>
+                        <li><a href="/collections/earrings-hoops" class="site-nav__link">Hoops</a></li>
+                        <li><a href="/collections/gemstone-earrings" class="site-nav__link">Gemstone</a></li>
+                        <li><a href="/collections/earrings" class="site-nav__link">View All</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/collections/lab-grown-diamonds" class="site-nav__link">Lab Grown</a>
+                      <ul>
+                        <li><a href="/collections/lab-grown-engagement-rings" class="site-nav__link">Engagement Rings</a></li>
+                        <li><a href="/collections/lab-grown-wedding-rings" class="site-nav__link">Wedding Rings</a></li>
+                        <li><a href="/collections/lab-grown-earrings" class="site-nav__link">Earrings</a></li>
+                        <li><a href="/collections/lab-grown-bracelets" class="site-nav__link">Bracelets</a></li>
+                        <li><a href="/collections/lab-grown-diamonds" class="site-nav__link">View All</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/collections/fashion" class="site-nav__link">Fashion</a>
+                      <ul>
+                        <li><a href="/collections/fashion-bracelets" class="site-nav__link">Bracelets</a></li>
+                        <li><a href="/collections/blue-diamond-fashion-jewelry" class="site-nav__link">Blue Diamond</a></li>
+                        <li><a href="/collections/black-diamond-fashion-jewelry" class="site-nav__link">Black Diamond</a></li>
+                        <li><a href="/collections/fashion-jewelry-rings" class="site-nav__link">Rings</a></li>
+                        <li><a href="/collections/fashion-jewelry-necklaces" class="site-nav__link">Necklaces</a></li>
+                        <li><a href="/collections/fashion" class="site-nav__link">View All</a></li>
+                      </ul>
+                    </li>                  
+                </ul>
+              </li>
+              <li><a href="/pages/about-us" class="site-nav__link">Our Story</a></li>
+          </ul>
+          <!-- //site-nav -->
+
+      </div>
+    </nav>
+
+    <main class="wrapper main-content" role="main">
+
+      {{ content_for_layout }}
+
+    </main>
+    {% render 'rvp' %}
+    <!-- begin site-footer -->
+    {% section 'footer' %}
+    <!-- //site-footer -->
+  </div>
+                
+<div id="backtotop">
+	<i class="fas fa-arrow-circle-up"></i>
+</div>
+                
+  {{ 'slick.min.js' | asset_url | script_tag }}
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+  {{ 'timber.js' | asset_url | script_tag }}
+  
+  {% comment %}
+    Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+      $(function() {
+        timber.resetPasswordSuccess();
+      });
+    {% endif %}
+  </script>
+
+  {% comment %}
+    Ajaxify your cart with this plugin.
+    Documentation:
+      - http://shopify.com/timber#ajax-cart
+  {% endcomment %}
+  {% if settings.ajax_cart_method == "drawer" %}
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
+    {% include 'ajax-cart-template' %}
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <script>
+      jQuery(function($) {
+        ajaxCart.init({
+          formSelector: '#AddToCartForm',
+          cartContainer: '#CartContainer',
+          addToCartSelector: '#AddToCart',
+          cartCountSelector: '#CartCount',
+          cartCostSelector: '#CartCost',
+          moneyFormat: {{ shop.money_format | json }}
+        });
+      });
+
+      jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
+        // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+        timber.RightDrawer.open();
+      });
+                
+
+    </script>
+  {% endif %}
+<script src="//code.tidio.co/puzwmx0mohdnelxowmgioss9kxpkcl4x.js" async></script>
+                
+</body>
+</html>
